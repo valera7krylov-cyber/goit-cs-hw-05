@@ -1,4 +1,3 @@
-
 # Task 1 — Asynchronous File Sorter
 
 ## Requirements
@@ -11,3 +10,38 @@
 ```bash
 python -m pip install -r requirements.txt
 ```
+
+
+# Task 2 — MapReduce Word Frequency Analysis
+
+## Description
+
+This Python script downloads text from a specified URL, analyzes word frequency using the MapReduce paradigm and visualizes the top 10 most frequently used words.
+
+The program uses multithreading with `ThreadPoolExecutor` to process word frequency data.
+
+## Requirements
+
+* Python 3.14
+* matplotlib
+* requests
+
+## Installation
+
+Install the required dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+## Usage
+
+Run the script:
+
+```bash
+python visualize_top_words.py
+```
+
+The script downloads text from Project Gutenberg, calculates word frequencies, prints the top 10 most frequent words and displays a bar chart.
+
+The chart is also saved as `top_words.png` in the current working directory.
