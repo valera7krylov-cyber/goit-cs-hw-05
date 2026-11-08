@@ -1,10 +1,10 @@
-import asyncio
 import argparse
+import asyncio
 import logging
 import shutil
+from pathlib import Path
 
 from aiopath import AsyncPath
-from pathlib import Path
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -16,7 +16,11 @@ def parse_arguments():
 
     return parser.parse_args()
 
-async def read_folder(source: AsyncPath, output: AsyncPath, tasks: list[asyncio.Task[None]]):
+async def read_folder(
+    source: AsyncPath,
+    output: AsyncPath,
+    tasks: list[asyncio.Task[None]]
+):
     try:
         async for item in source.iterdir():
             if await item.is_dir():
@@ -63,8 +67,8 @@ async def main():
         logging.error("Output folder must not be inside source folder")
         return
 
-    source = AsyncPath(args.source)
-    output = AsyncPath(args.output)
+    source = AsyncPath(source_path)
+    output = AsyncPath(output_path)
 
     if not await source.is_dir():
         logging.error("Source folder does not exist")
@@ -79,7 +83,7 @@ async def main():
 
 if __name__ == "__main__":
     logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s"
     )
     asyncio.run(main())

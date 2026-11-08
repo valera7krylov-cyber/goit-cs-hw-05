@@ -11,6 +11,18 @@
 python -m pip install -r requirements.txt
 ```
 
+## Usage
+
+Run the script from the `task_1` directory:
+
+```bash
+python sort_files.py ./source ./output
+```
+
+The script recursively scans the source directory and copies files into subfolders grouped by extension.
+
+Files without an extension are placed in the `no_extension` folder.
+
 
 # Task 2 — MapReduce Word Frequency Analysis
 
